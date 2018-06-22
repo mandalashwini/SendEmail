@@ -11,8 +11,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'gmail', '0.6.0', git: 'https://github.com/ajinkyak-cuelogic/gmail.git', branch: 'returning_gmail_status'
+#gem 'gmail', '0.6.0', git: 'https://github.com/ajinkyak-cuelogic/gmail.git', branch: 'returning_gmail_status'
+#gmail gems
 gem 'omniauth-google-oauth2'
+gem 'gmail'
+gem 'gmail_xoauth'
+gem 'google-api-client'
 group :development, :test do
   gem 'byebug'
 end

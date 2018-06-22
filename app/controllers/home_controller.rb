@@ -48,4 +48,10 @@ class HomeController < ApplicationController
 
     render plain: params.inspect
   end
+
+  def gmail_login
+    uri=Access_token.find_redirect_url
+    #render plain: uri.inspect
+    redirect_to uri
+  end
 end

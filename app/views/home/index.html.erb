@@ -8,7 +8,7 @@
     <%= f.submit 'send', class: "btn-success" %>
 <% end %> 
 </div>
-<%= link_to image_tag("google_login.png"),'auth/google_oauth2' %>
+<%= link_to image_tag("google_login.png"),gmail_uri_path%>
 <div class= "flash-messages" >
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
