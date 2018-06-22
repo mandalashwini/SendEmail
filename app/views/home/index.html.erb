@@ -1,0 +1,15 @@
+<div class="container">
+    
+<h3>Email sender</h3>
+
+<%= form_for :mail_details, url:send_path do |f| %>
+    email<br/><%= f.email_field :email%><br/><br/>
+    count<br/><%= f.text_field :count%><br/><br/>
+    <%= f.submit 'send', class: "btn-success" %>
+<% end %> 
+</div>
+<%= link_to image_tag("google_login.png"),'auth/google_oauth2' %>
+<div class= "flash-messages" >
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
