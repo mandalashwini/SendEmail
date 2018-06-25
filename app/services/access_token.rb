@@ -10,20 +10,9 @@ class Access_token
       :scope => 'email profile https://mail.google.com/ https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.compose https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.metadata',
       :redirect_uri => 'http://localhost:3000/auth/callback'
     )
-    #puts "client=>#{client.inspect}"
-   
-    #authorization = client.authorization_uri.to_s
-    #authorization
-
-    #client.code = request.query['code']
-    #puts "token---->",client.fetch_access_token!
-
-    #require 'oauth2'
-    # client = OAuth2::Client.new('851460829618-sijk2l8pc20ptivbrfb6jnpsjpne68k6.apps.googleusercontent.com', 'client_secret', 'localhost:3000')
-      #puts "------------>",client.inpsect
+    
       end
       def self.get_username(access_token)
-  # require 'rest-client'
         @response=JSON.parse(RestClient.get "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=#{access_token}")
         @response["email"]
       end
