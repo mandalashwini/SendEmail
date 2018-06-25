@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   end
   def create  
 puts "===>",request.env['omniauth.auth']
-binding.pry
 client=Access_token.find_redirect_url
 client.code=params["code"]
 token_data=client.fetch_access_token!
@@ -48,16 +47,22 @@ else
             redirect_to :back
         else
         @gmail=User.connect_to_gmail
+       
         count.times do 
+          EmailSenderWorker.perform_async(@gmail,receiver,subject)
+=begin
             email = @gmail.compose do
               to "#{receiver}"
               subject "#{subject}"
               body "!!!!!!Have a nice Day!!"
             end
-             email.deliver!
-              puts "hhhhhh"
-              cnt=1
+            email.deliver!
+=end
+                puts "ppppppppppppp"
+                sleep(5)
+                cnt=1
         end
+        @gmail.logout
         #flash[:notice]="Emails has been sent"
         #redirect_to :back
         #puts gmail.inbox.count

@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
         @gmail=Gmail.connect(:xoauth2,sender,token)
         @gmail
     end
+    
 end
