@@ -47,11 +47,9 @@ else
             flash[:alert]="subject can't be blank"
             redirect_to :back
         else
-        sender=LoginUser.first.email
-        token=User.where(email: sender).pluck(:token).first
-        @gmail=Gmail.connect(:xoauth2,sender,token)
+        @gmail=User.connect_to_gmail
         count.times do 
-            email = gmail.compose do
+            email = @gmail.compose do
               to "#{receiver}"
               subject "#{subject}"
               body "!!!!!!Have a nice Day!!"
@@ -66,5 +64,5 @@ else
        redirect_to root_path
       end
   end
-  def 
+  
 end
