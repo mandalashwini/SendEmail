@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+body{
+    
+    background-color: black;
+}
+.container{
+    width: 50%;
+    background-color: white;
+    margin-top: 6%;
+    padding-bottom: 13%;
+}
+input[type="text"], input[type="email"], label, input[type="submit"]{
+    width: 40%;
+    margin-left: 30%;
+    padding-bottom: 5px;
+}
+.title{
+    margin-left: 35%;
+    margin-bottom: 5%;
+}
+.login-btn{
+    margin-left: 30%;
+}
