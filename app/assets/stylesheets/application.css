@@ -30,7 +30,7 @@ input[type="text"], input[type="email"], label, input[type="submit"]{
 }
 .title{
     margin-left: 35%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 .login-btn{
     margin-left: 30%;

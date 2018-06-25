@@ -36,20 +36,24 @@ else
   def send_email
     puts "inside gmail login"
     cnt = 0
-    #render plain: params.inspect
+   # render plain: params.inspect
         receiver=params[:mail_details][:email]
+        subject=params[:mail_details][:subject]
+        count=params[:mail_details][:count].to_i
         if receiver.empty?
           flash[:alert]="email can't be blank"
           redirect_to :back
+        elsif subject.empty?
+            flash[:alert]="subject can't be blank"
+            redirect_to :back
         else
-        count=params[:mail_details][:count].to_i
         sender=LoginUser.first.email
         token=User.where(email: sender).pluck(:token).first
         gmail=Gmail.connect(:xoauth2,sender,token)
         count.times do 
             email = gmail.compose do
               to "#{receiver}"
-              subject "Testing Mail"
+              subject "#{subject}"
               body "!!!!!!Have a nice Day!!"
             end
              email.deliver!
@@ -59,7 +63,7 @@ else
         #flash[:notice]="Emails has been sent"
         #redirect_to :back
         #puts gmail.inbox.count
-        redirect_to root_path
+       redirect_to root_path
       end
   end
 end
