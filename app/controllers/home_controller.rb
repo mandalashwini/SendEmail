@@ -42,13 +42,13 @@ else
     sender=LoginUser.first.email
     token=User.where(email: sender).pluck(:token).first
     gmail=Gmail.connect(:xoauth2,sender,token)
+    binding.pry
     count.times do 
         email = gmail.compose do
           to "#{receiver}"
           subject "Testing Mail"
           body "!!!!!!Have a nice Day!!"
         end
-      
           email.deliver!
           puts "hhhhhh"
           cnt=1
