@@ -19,6 +19,8 @@ gem 'gmail_xoauth'
 gem 'google-api-client'
 gem 'rest-client'
 gem 'pry'
+gem 'sidekiq', '< 5'
+gem 'sinatra', :require => nil
 group :development, :test do
   gem 'byebug'
 end

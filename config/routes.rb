@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  require 'sidekiq/web'
   root 'home#index'
   get 'home/index'
   post 'home/send_email' , to: 'home#send_email', as: 'send'
@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'home/gmail_redirect_uri', to: 'home#gmail_redirect_uri' , as: 'gmail_uri'
   get 'home/compose', to: 'home#compose', as: 'mail_compose'
+  mount Sidekiq::Web => '/sidekiq'
  
 end
