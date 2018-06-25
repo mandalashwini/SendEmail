@@ -35,3 +35,6 @@ input[type="text"], input[type="email"], label, input[type="submit"]{
 .login-btn{
     margin-left: 30%;
 }
+.flash-messages{
+    margin-left: 30%;
+}
