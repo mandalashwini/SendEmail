@@ -17,6 +17,8 @@ gem 'omniauth-google-oauth2'
 gem 'gmail'
 gem 'gmail_xoauth'
 gem 'google-api-client'
+gem 'rest-client'
+gem 'pry'
 group :development, :test do
   gem 'byebug'
 end
