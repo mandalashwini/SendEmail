@@ -17,7 +17,7 @@ if token_data["refresh_token"].present?
 else
  @user=User.where(email: @email).update_all(token: token_data["access_token"],expiresat: find_expires_at(token_data["expires_in"]))
  end
-  redirect_to root_path
+  redirect_to mail_compose_path
   end
 
   def find_expires_at(expires_at)
@@ -49,7 +49,7 @@ else
         else
         sender=LoginUser.first.email
         token=User.where(email: sender).pluck(:token).first
-        gmail=Gmail.connect(:xoauth2,sender,token)
+        @gmail=Gmail.connect(:xoauth2,sender,token)
         count.times do 
             email = gmail.compose do
               to "#{receiver}"
@@ -66,4 +66,5 @@ else
        redirect_to root_path
       end
   end
+  def 
 end

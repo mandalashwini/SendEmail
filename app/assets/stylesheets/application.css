@@ -33,7 +33,7 @@ input[type="text"], input[type="email"], label, input[type="submit"]{
     margin-bottom: 2%;
 }
 .login-btn{
-    margin-left: 30%;
+    margin-left: 20%;
 }
 .flash-messages{
     margin-left: 30%;

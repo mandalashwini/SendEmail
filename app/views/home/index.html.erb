@@ -5,15 +5,6 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 </div>
-<%= form_for :mail_details, url:send_path do |f| %>
-  <%= f.label :email, "To :-" %>
-  <br/><%= f.email_field :email%><br/><br/>
-  <%= f.label :subject, "Subject :-" %>
-  <br/><%= f.text_field :subject%><br/><br/>
-  <%= f.label :count, 'Count :- ' %>
-  <br/><%= f.text_field :count %><br/><br/>
- 
-  <%= f.submit 'send', class: "btn-success" %>
-<% end %> 
-<%= link_to image_tag("google_login2.png"),gmail_uri_path, class: "login-btn"%>
+
+<%= link_to image_tag("google_login.png"),gmail_uri_path, class: "login-btn"%>
 </div>
