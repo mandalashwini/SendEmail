@@ -37,25 +37,29 @@ else
     puts "inside gmail login"
     cnt = 0
     #render plain: params.inspect
-    receiver=params[:mail_details][:email]
-    count=params[:mail_details][:count].to_i
-    sender=LoginUser.first.email
-    token=User.where(email: sender).pluck(:token).first
-    gmail=Gmail.connect(:xoauth2,sender,token)
-    binding.pry
-    count.times do 
-        email = gmail.compose do
-          to "#{receiver}"
-          subject "Testing Mail"
-          body "!!!!!!Have a nice Day!!"
+        receiver=params[:mail_details][:email]
+        if receiver.empty?
+          flash[:alert]="email can't be blank"
+          redirect_to :back
+        else
+        count=params[:mail_details][:count].to_i
+        sender=LoginUser.first.email
+        token=User.where(email: sender).pluck(:token).first
+        gmail=Gmail.connect(:xoauth2,sender,token)
+        count.times do 
+            email = gmail.compose do
+              to "#{receiver}"
+              subject "Testing Mail"
+              body "!!!!!!Have a nice Day!!"
+            end
+             email.deliver!
+              puts "hhhhhh"
+              cnt=1
         end
-          email.deliver!
-          puts "hhhhhh"
-          cnt=1
-    end
-    flash[:notice]="Emails has been sent"
-    #redirect_to :back
-    #puts gmail.inbox.count
-    redirect_to root_path
+        #flash[:notice]="Emails has been sent"
+        #redirect_to :back
+        #puts gmail.inbox.count
+        redirect_to root_path
+      end
   end
 end
