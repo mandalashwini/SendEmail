@@ -13,19 +13,21 @@
  *= require_tree .
  *= require_self
  */
-body{
+/*body{
     
-   /* background-color: black;*/
-}
+    background-color: black;
+}*/
 .container{
     width: 50%;
     background-color: white;
     margin-top: 6%;
     padding-bottom: 13%;
+   /* border-style: groove;*/
+    height: 50%;
 }
 input[type="text"], input[type="email"], label, input[type="submit"]{
-    width: 40%;
-    margin-left: 30%;
+    width: 60%;
+    margin-left: 1%;
     padding-bottom: 5px;
 }
 .title{

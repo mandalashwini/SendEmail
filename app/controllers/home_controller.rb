@@ -34,7 +34,7 @@ LoginUser.create(email: @email)
 
   def send_email
     puts "inside gmail login"
-   # render plain: params.inspect
+   #render plain: params.inspect
         receiver=params[:mail_details][:email]
         subject=params[:mail_details][:subject]
         body=params[:mail_details][:body]

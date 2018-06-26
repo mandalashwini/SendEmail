@@ -21,6 +21,9 @@ gem 'rest-client'
 gem 'pry'
 gem 'sidekiq', '< 5'
 gem 'sinatra', :require => nil
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
 group :development, :test do
   gem 'byebug'
 end
