@@ -58,4 +58,5 @@ LoginUser.create(email: @email)
     flash[:notice]="successfully logout!!"
     redirect_to root_path
   end
+  
 end
