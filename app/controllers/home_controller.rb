@@ -25,9 +25,9 @@ LoginUser.create(email: @email)
   
   def gmail_redirect_uri
   
-    client=Access_token.find_redirect_url
+   # client=Access_token.find_redirect_url
     #render plain: uri.inspect
-    authorization = client.authorization_uri.to_s
+    #authorization = client.authorization_uri.to_s
     authorization="https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=851460829618-h4upoo5b8v7qdfhpsf3n1h90u1rahpe7.apps.googleusercontent.com&as=BCJMcu5BVJlSc738g-r4wA&destination=http%3A%2F%2Flocalhost%3A3000&approval_state=!ChQzbUpwb1lrazA3ZHlXOTd4dkJSTRIfMDFkWUgzUW00SFlTOEhuU1JuY2dubW9lWHhWb1F4WQ%E2%88%99AB8iHBUAAAAAWzIWc2QeDvx8xT1UQ28R_D4XeWsQiEyw&xsrfsig=AHgIfE-dUvHehWZXWLM3ZI3fZDF-v3njNw&flowName=GeneralOAuthFlow"
     redirect_to authorization
   end
