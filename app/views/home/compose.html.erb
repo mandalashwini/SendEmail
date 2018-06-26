@@ -1,7 +1,7 @@
 <div class="container">
 
         <h3 class="title">Email sender</h3>
-        <p align="left"> <%= link_to 'Logout' %></p>
+        <p align="left"> <%= link_to 'Logout',logout_path %></p>
         <div class= "flash-messages" >
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
@@ -10,7 +10,9 @@
         <%= f.label :email, "To :-" %>
         <br/><%= f.email_field :email%><br/><br/>
         <%= f.label :subject, "Subject :-" %>
-        <br/><%= f.text_field :subject%><br/><br/>
+        <br/><%= f.text_field :subject, value: 'default'%><br/><br/>
+        <%= f.label :body, "Body :-" %>
+        <br/><%= f.text_field :body%><br/><br/>
         <%= f.label :count, 'Count :- ' %>
         <br/><%= f.text_field :count %><br/><br/>
         

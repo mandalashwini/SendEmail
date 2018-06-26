@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'home/gmail_redirect_uri', to: 'home#gmail_redirect_uri' , as: 'gmail_uri'
   get 'home/compose', to: 'home#compose', as: 'mail_compose'
+  get 'home/logout', to: 'home#logout', as: 'logout'
   mount Sidekiq::Web => '/sidekiq'
  
 end

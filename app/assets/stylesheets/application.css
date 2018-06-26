@@ -15,7 +15,7 @@
  */
 body{
     
-    background-color: black;
+   /* background-color: black;*/
 }
 .container{
     width: 50%;
@@ -38,3 +38,6 @@ input[type="text"], input[type="email"], label, input[type="submit"]{
 .flash-messages{
     margin-left: 30%;
 }
+.notice{
+    color: green;
+}                                                                                                           

@@ -1,14 +1,18 @@
 class EmailSenderWorker
   include Sidekiq::Worker
-  def perform(receiver,subject)
+  def perform(receiver,subject,body,count)
     @gmail=User.connect_to_gmail
-  #  User.email_sender(@gmail,receiver,subject)
-    email = @gmail.compose do
-      to "#{receiver}"
-      subject "#{subject}"
-      body "@@@Have a nice Day!!"
+    cnt=1
+    count.times do
+        day=Date.today.strftime("%A")
+        time=User.calculate_time
+        new_subject=subject+"_"+cnt.to_s+" "+day+" "+time
+        User.email_sender(@gmail,receiver,new_subject,body)
+        puts "123"
+        cnt = cnt + 1
+        sleep(10)
     end
-     email.deliver!
-     @gmail.logout
+    @gmail.logout
+    
   end
 end

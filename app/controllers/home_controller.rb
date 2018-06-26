@@ -12,10 +12,10 @@ puts token_data
 if token_data["refresh_token"].present?
   @user=User.new(email: @email,token:token_data["access_token"],refreshtoken: token_data["refresh_token"],expiresat:find_expires_at(token_data["expires_in"]))
   @user.save!
-  LoginUser.create(email: @email) 
 else
  @user=User.where(email: @email).update_all(token: token_data["access_token"],expiresat: find_expires_at(token_data["expires_in"]))
- end
+end
+LoginUser.create(email: @email) 
   redirect_to mail_compose_path
   end
 
@@ -34,10 +34,10 @@ else
 
   def send_email
     puts "inside gmail login"
-    cnt = 0
    # render plain: params.inspect
         receiver=params[:mail_details][:email]
         subject=params[:mail_details][:subject]
+        body=params[:mail_details][:body]
         count=params[:mail_details][:count].to_i
         if receiver.empty?
           flash[:alert]="email can't be blank"
@@ -45,29 +45,17 @@ else
         elsif subject.empty?
             flash[:alert]="subject can't be blank"
             redirect_to :back
+        elsif count == 0
+            flash[:alert]="count can't be blank"
+            redirect_to :back
         else
-     #   @gmail=User.connect_to_gmail
-       
-        count.times do 
-          EmailSenderWorker.perform_async(receiver,subject)
-=begin
-            email = @gmail.compose do
-              to "#{receiver}"
-              subject "#{subject}"
-              body "!!!!!!Have a nice Day!!"
-            end
-            email.deliver!
-=end
-                puts "ppppppppppppp"
-                sleep(10)
-                cnt=1
-        end
-       
-        #flash[:notice]="Emails has been sent"
-        #redirect_to :back
-        #puts gmail.inbox.count
-       redirect_to root_path
+        EmailSenderWorker.perform_async(receiver,subject,body,count)
+       redirect_to :back
       end
   end
-  
+  def logout
+    LoginUser.destroy_all
+    flash[:notice]="successfully logout!!"
+    redirect_to root_path
+  end
 end
