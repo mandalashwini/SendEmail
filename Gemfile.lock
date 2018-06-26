@@ -282,7 +282,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   omniauth-google-oauth2
-  pg
+  pg (= 1.0)
   pry
   rails (= 4.2.6)
   rest-client
