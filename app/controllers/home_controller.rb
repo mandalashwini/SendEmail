@@ -46,10 +46,10 @@ else
             flash[:alert]="subject can't be blank"
             redirect_to :back
         else
-        @gmail=User.connect_to_gmail
+     #   @gmail=User.connect_to_gmail
        
         count.times do 
-          EmailSenderWorker.perform_async(@gmail,receiver,subject)
+          EmailSenderWorker.perform_async(receiver,subject)
 =begin
             email = @gmail.compose do
               to "#{receiver}"
@@ -59,10 +59,10 @@ else
             email.deliver!
 =end
                 puts "ppppppppppppp"
-                sleep(5)
+                sleep(10)
                 cnt=1
         end
-        @gmail.logout
+       
         #flash[:notice]="Emails has been sent"
         #redirect_to :back
         #puts gmail.inbox.count
