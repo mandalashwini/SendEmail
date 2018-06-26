@@ -8,7 +8,7 @@ class Access_token
       :client_id => '851460829618-h4upoo5b8v7qdfhpsf3n1h90u1rahpe7.apps.googleusercontent.com',
       :client_secret => '-i5VM884fngsEVmzpA7aCi4Q',
       :scope => 'email profile https://mail.google.com/ https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.compose https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.metadata',
-      :redirect_uri => 'http://localhost:3000/auth/callback'
+      :redirect_uri => 'https://mailsender1.herokuapp.com/auth/callback'
     )
     
       end

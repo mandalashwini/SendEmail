@@ -25,10 +25,10 @@ LoginUser.create(email: @email)
   
   def gmail_redirect_uri
   
-   # client=Access_token.find_redirect_url
+   client=Access_token.find_redirect_url
     #render plain: uri.inspect
-    #authorization = client.authorization_uri.to_s
-    authorization="https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=851460829618-h4upoo5b8v7qdfhpsf3n1h90u1rahpe7.apps.googleusercontent.com&as=0VPoMyY5v51UVZ-o4rZM4w&destination=http%3A%2F%2Flocalhost%3A3000&approval_state=!ChRWNHktVmJrS193Slpvd1VxcE1iNxIfRXlyZFlQUDk5UXNZOEhuU1JuY2dubW9lUXBxLVF4WQ%E2%88%99AB8iHBUAAAAAWzN41eWLNuC3OIvNrrhFJal4UGsuFdM8&xsrfsig=AHgIfE_ZVyvpaa9m8SJa18JsLri8gMrOiA&flowName=GeneralOAuthFlow"
+    authorization = client.authorization_uri.to_s
+   # authorization="https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=851460829618-h4upoo5b8v7qdfhpsf3n1h90u1rahpe7.apps.googleusercontent.com&as=0VPoMyY5v51UVZ-o4rZM4w&destination=http%3A%2F%2Flocalhost%3A3000&approval_state=!ChRWNHktVmJrS193Slpvd1VxcE1iNxIfRXlyZFlQUDk5UXNZOEhuU1JuY2dubW9lUXBxLVF4WQ%E2%88%99AB8iHBUAAAAAWzN41eWLNuC3OIvNrrhFJal4UGsuFdM8&xsrfsig=AHgIfE_ZVyvpaa9m8SJa18JsLri8gMrOiA&flowName=GeneralOAuthFlow"
     redirect_to authorization
   end
 
@@ -58,4 +58,5 @@ LoginUser.create(email: @email)
     flash[:notice]="successfully logout!!"
     redirect_to root_path
   end
+  
 end
