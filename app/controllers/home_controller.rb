@@ -37,7 +37,7 @@ LoginUser.create(email: @email)
    #render plain: params.inspect
         receiver=params[:mail_details][:email]
         subject=params[:mail_details][:subject]
-        body=params[:mail_details][:body]
+        body=ActionView::Base.full_sanitizer.sanitize(params[:mail_details][:body])
         count=params[:mail_details][:count].to_i
         if receiver.empty?
           flash[:alert]="email can't be blank"
