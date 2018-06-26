@@ -1,0 +1,1 @@
+CKEDITOR.editorConfig=function(i){i.width=700,i.height=100};
