@@ -290,7 +290,7 @@ DEPENDENCIES
   sidekiq (< 5)
   sinatra
   spring
-  sqlite3 (= 1.3.13)
+  sqlite3
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
